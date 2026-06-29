@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ParkNotify</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="card">
+
+<div class="logo">
+
+🚗
+
+</div>
+
+<h1>ParkNotify</h1>
+
+<p class="subtitle">
+
+Ако сте сканирали този QR код, вероятно има причина да се свържете със собственика на автомобила.
+
+</p>
+
+<div class="actions">
+
+<a id="callBtn" class="btn call">
+📞 Обади се
+</a>
+
+<a id="viberBtn" class="btn viber">
+💜 Viber
+</a>
+
+<a id="whatsappBtn" class="btn whatsapp">
+💬 WhatsApp
+</a>
+
+<a id="smsBtn" class="btn sms">
+✉️ SMS
+</a>
+
+</div>
+
+<div class="divider"></div>
+
+<h2>
+
+Защо искате да се свържете?
+
+</h2>
+
+<div class="reasons">
+
+<button class="reason" data-message="Автомобилът Ви пречи при паркиране.">
+🚫 Автомобилът пречи
+</button>
+
+<button class="reason" data-message="Фаровете на автомобила Ви са включени.">
+💡 Светят фаровете
+</button>
+
+<button class="reason" data-message="Имате отворен прозорец.">
+🪟 Отворен прозорец
+</button>
+
+<button class="reason" data-message="Алармата на автомобила Ви е включена.">
+🔔 Включена аларма
+</button>
+
+<button class="reason" data-message="Автомобилът Ви изглежда ударен.">
+🚗 Ударен автомобил
+</button>
+
+<button class="reason" data-message="Бих искал да се свържа с Вас.">
+❓ Друго
+</button>
+
+</div>
+
+<div class="divider"></div>
+
+<div class="plate">
+
+🚙 <span id="plate">PB2621XE</span>
+
+</div>
+
+<p class="thanks">
+
+Благодаря, че отделихте време да уведомите собственика.
+
+</p>
+
+</div>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
