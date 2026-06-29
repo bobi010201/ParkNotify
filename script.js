@@ -3,31 +3,55 @@ const whatsapp = CONFIG.whatsapp;
 const viber = CONFIG.viber;
 const plate = CONFIG.plate;
 
-// plate display
+// --------------------
+// DISPLAY REGISTRATION
+// --------------------
 document.getElementById("plate").textContent = plate;
 
-// CALL
-document.getElementById("callBtn").href = `tel:${phone}`;
+// --------------------
+// CALL BUTTON
+// --------------------
+document.getElementById("callBtn").setAttribute("href", `tel:${phone}`);
 
-// SMS (default empty message, will be filled by reason buttons)
-document.getElementById("smsBtn").href = `sms:${phone}`;
+// --------------------
+// WHATSAPP (fixed format)
+// --------------------
+document.getElementById("whatsappBtn").setAttribute(
+  "href",
+  `https://wa.me/${whatsapp.replace(/\+/g, "")}`
+);
 
-// WhatsApp
-document.getElementById("whatsappBtn").href = `https://wa.me/${whatsapp}`;
+// --------------------
+// VIBER (fixed format)
+// --------------------
+document.getElementById("viberBtn").setAttribute(
+  "href",
+  `viber://chat?number=${viber}`
+);
 
-// Viber
-document.getElementById("viberBtn").href = `viber://chat?number=${viber}`;
+// --------------------
+// SMS BUTTON (simple direct)
+// --------------------
+document.getElementById("smsBtn").addEventListener("click", (e) => {
+  e.preventDefault();
+  window.location.href = `sms:${phone}`;
+});
 
-// REASONS -> auto SMS
+// --------------------
+// REASONS -> AUTO SMS TEXT
+// --------------------
 const reasons = document.querySelectorAll(".reason");
 
-reasons.forEach(btn => {
+reasons.forEach((btn) => {
   btn.addEventListener("click", () => {
     const message = btn.getAttribute("data-message");
 
-    const smsLink = `sms:${phone}?body=${encodeURIComponent(message + "\n\nБлагодаря!")}`;
+    const fullMessage =
+      message +
+      "\n\nБлагодаря, че отделихте време да уведомите собственика.";
 
-    // open SMS app directly
+    const smsLink = `sms:${phone}?body=${encodeURIComponent(fullMessage)}`;
+
     window.location.href = smsLink;
   });
 });
