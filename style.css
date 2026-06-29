@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #111827);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 20px;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top, rgba(34, 197, 94, 0.15), transparent 60%),
+              radial-gradient(circle at bottom, rgba(168, 85, 247, 0.12), transparent 60%);
+  z-index: -1;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.8;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.actions {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.btn {
+  display: block;
+  text-align: center;
+  padding: 14px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.call {
+  background: #22c55e;
+  color: black;
+}
+
+.viber {
+  background: #7c3aed;
+  color: white;
+}
+
+.whatsapp {
+  background: #16a34a;
+  color: white;
+}
+
+.sms {
+  background: #334155;
+  color: white;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 20px 0;
+}
+
+h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.reasons {
+  display: grid;
+  gap: 10px;
+}
+
+.reason {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+  text-align: left;
+}
+
+.reason:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.plate {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+.thanks {
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 15px;
+}
