@@ -1,6 +1,6 @@
 const CONFIG = {
-  phone: "+359888123456",
-  whatsapp: "+359888123456",
-  viber: "+359888123456",
-  plate: "CB1234AB"
+  phone: "+359889264701",
+  whatsapp: "+359889264701",
+  viber: "+359889264701",
+  plate: "PB2621XE"
 };
