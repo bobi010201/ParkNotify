@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,8 +11,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
-
+<link rel="stylesheet" href="style.css?v=20260701">
 </head>
 
 <body>
@@ -22,94 +20,51 @@
 
 <div class="card">
 
-<div class="logo">
+  <div class="logo">🚗</div>
 
-🚗
+  <h1>ParkNotify</h1>
 
-</div>
+  <p class="subtitle">
+    Ако сте сканирали този QR код, вероятно има причина да се свържете със собственика на автомобила.
+  </p>
 
-<h1>ParkNotify</h1>
+  <div class="actions">
 
-<p class="subtitle">
+    <a id="callBtn" class="btn call" href="#">📞 Обади се</a>
 
-Ако сте сканирали този QR код, вероятно има причина да се свържете със собственика на автомобила.
+    <a id="viberBtn" class="btn viber" href="#">💜 Viber</a>
 
-</p>
+    <a id="whatsappBtn" class="btn whatsapp" href="#">💬 WhatsApp</a>
 
-<div class="actions">
+    <a id="smsBtn" class="btn sms" href="#">✉️ SMS</a>
 
-<a id="callBtn" class="btn call" href="#">
-📞 Обади се
-</a>
+  </div>
 
-<a id="viberBtn" class="btn viber" href="#">
-💜 Viber
-</a>
+  <div class="divider"></div>
 
-<a id="whatsappBtn" class="btn whatsapp" href="#">
-💬 WhatsApp
-</a>
+  <h2>Защо искате да се свържете?</h2>
 
-<a id="smsBtn" class="btn sms" href="#">
-✉️ SMS
-</a>
+  <div class="reasons">
 
-</div>
+    <button class="reason" data-message="Автомобилът Ви пречи при паркиране.">🚫 Автомобилът пречи</button>
+    <button class="reason" data-message="Фаровете на автомобила Ви са включени.">💡 Светят фаровете</button>
+    <button class="reason" data-message="Имате отворен прозорец.">🪟 Отворен прозорец</button>
+    <button class="reason" data-message="Алармата на автомобила Ви е включена.">🔔 Включена аларма</button>
+    <button class="reason" data-message="Автомобилът Ви изглежда ударен.">🚗 Ударен автомобил</button>
+    <button class="reason" data-message="Бих искал да се свържа с Вас.">❓ Друго</button>
 
-<div class="divider"></div>
+  </div>
 
-<h2>
+  <div class="divider"></div>
 
-Защо искате да се свържете?
-
-</h2>
-
-<div class="reasons">
-
-<button class="reason" data-message="Автомобилът Ви пречи при паркиране.">
-🚫 Автомобилът пречи
-</button>
-
-<button class="reason" data-message="Фаровете на автомобила Ви са включени.">
-💡 Светят фаровете
-</button>
-
-<button class="reason" data-message="Имате отворен прозорец.">
-🪟 Отворен прозорец
-</button>
-
-<button class="reason" data-message="Алармата на автомобила Ви е включена.">
-🔔 Включена аларма
-</button>
-
-<button class="reason" data-message="Автомобилът Ви изглежда ударен.">
-🚗 Ударен автомобил
-</button>
-
-<button class="reason" data-message="Бих искал да се свържа с Вас.">
-❓ Друго
-</button>
-
-</div>
-
-<div class="divider"></div>
-
-<div class="plate">
-
-🚙 <span id="plate">PB2621XE</span>
-
-</div>
-
-<p class="thanks">
-
-Благодаря, че отделихте време да уведомите собственика.
-
-</p>
+  <div class="plate">
+    🚙 <span id="plate">PB2621XE</span>
+  </div>
 
 </div>
 
 <script src="config.js"></script>
-<script src="script.js"></script>
+<script src="script.js?v=20260701"></script>
 
 </body>
 </html>
