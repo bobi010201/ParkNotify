@@ -3,8 +3,6 @@ body {
   font-family: 'Inter', sans-serif;
   background: #0f172a;
   color: white;
-
-  -webkit-font-smoothing: antialiased;
 }
 
 /* animated background */
@@ -13,50 +11,32 @@ body {
   inset: 0;
   background: linear-gradient(-45deg, #0f172a, #1e293b, #0b1220, #111827);
   background-size: 400% 400%;
-  animation: gradientMove 12s ease infinite;
+  animation: move 12s ease infinite;
   z-index: -1;
 }
 
-@keyframes gradientMove {
+@keyframes move {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* card glassmorphism */
+/* card */
 .card {
   max-width: 420px;
   margin: 40px auto;
-  padding: 22px;
-
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 20px;
+  background: rgba(255,255,255,0.08);
   border-radius: 20px;
-
+  border: 1px solid rgba(255,255,255,0.12);
   backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-}
-
-/* logo */
-.logo {
-  font-size: 40px;
   text-align: center;
 }
 
-/* text */
-h1 {
-  text-align: center;
-}
+.logo { font-size: 40px; }
 
-.subtitle {
-  text-align: center;
-  opacity: 0.8;
-  font-size: 14px;
-}
+.subtitle { opacity: 0.8; font-size: 14px; }
 
-/* buttons */
 .actions {
   display: grid;
   gap: 10px;
@@ -64,79 +44,84 @@ h1 {
 }
 
 .btn {
-  display: block;
   padding: 14px;
   border-radius: 14px;
-  text-align: center;
-  font-weight: 600;
   text-decoration: none;
-
-  transition: 0.2s ease;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-}
-
-.btn:active {
-  transform: scale(0.97);
-}
-
-/* colors */
-.call { background: #22c55e; color: white; }
-.viber { background: #8b5cf6; color: white; }
-.whatsapp { background: #25D366; color: white; }
-.sms { 
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  font-weight: 600;
   color: white;
+  transition: 0.2s;
 }
 
-/* divider */
+.btn:active { transform: scale(0.97); }
+
+.call { background: #22c55e; }
+.viber { background: #8b5cf6; }
+.whatsapp { background: #25D366; }
+.sms { background: linear-gradient(135deg,#3b82f6,#2563eb); }
+
 .divider {
-  margin: 20px 0;
   height: 1px;
   background: rgba(255,255,255,0.1);
+  margin: 20px 0;
 }
 
-/* reasons */
-.reasons {
-  display: none;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  margin-top: 10px;
-
-  animation: fadeIn 0.25s ease;
+.plate {
+  font-size: 18px;
+  font-weight: 700;
 }
 
-/* reason cards */
+/* overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* bottom sheet */
+.sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -100%;
+  background: rgba(20,20,30,0.95);
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+  transition: 0.35s;
+  z-index: 10;
+  backdrop-filter: blur(20px);
+}
+
+.sheet.show { bottom: 0; }
+
+.handle {
+  width: 50px;
+  height: 5px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 10px;
+  margin: 0 auto 15px;
+}
+
+.sheet h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
 .reason {
-  padding: 14px;
-  border-radius: 14px;
-
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
-
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,0.08);
   color: white;
   text-align: left;
-
-  transition: 0.2s ease;
-}
-
-.reason:active {
-  transform: scale(0.98);
-}
-
-.reason:hover {
-  background: rgba(255,255,255,0.12);
-}
-
-/* plate */
-.plate {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-/* animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
 }
