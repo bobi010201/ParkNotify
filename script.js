@@ -15,23 +15,25 @@ document.getElementById("whatsappBtn").href = `https://wa.me/${whatsapp}`;
 // Viber
 document.getElementById("viberBtn").href = `viber://chat?number=${viber}`;
 
-// SMS button -> show reasons instead of opening SMS
+// SMS button
 const smsBtn = document.getElementById("smsBtn");
 const reasonsContainer = document.querySelector(".reasons");
+const reasons = document.querySelectorAll(".reason");
 
+// важно: започва скрито
+if (reasonsContainer) {
+  reasonsContainer.style.display = "none";
+}
+
+// SMS click -> show reasons
 smsBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  // показва причините
   reasonsContainer.style.display = "grid";
-
-  // scroll към тях (по-удобно за телефон)
   reasonsContainer.scrollIntoView({ behavior: "smooth" });
 });
 
-// Reasons -> open SMS with selected message only
-const reasons = document.querySelectorAll(".reason");
-
+// Reason click -> open SMS with ONLY message
 reasons.forEach(btn => {
   btn.addEventListener("click", () => {
     const message = btn.getAttribute("data-message");
