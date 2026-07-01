@@ -3,54 +3,40 @@ const whatsapp = CONFIG.whatsapp;
 const viber = CONFIG.viber;
 const plate = CONFIG.plate;
 
-// --------------------
-// DISPLAY REGISTRATION
-// --------------------
+// plate display
 document.getElementById("plate").textContent = plate;
 
-// --------------------
-// CALL BUTTON
-// --------------------
-document.getElementById("callBtn").setAttribute("href", `tel:${phone}`);
+// CALL
+document.getElementById("callBtn").href = `tel:${phone}`;
 
-// --------------------
-// WHATSAPP (fixed format)
-// --------------------
-document.getElementById("whatsappBtn").setAttribute(
-  "href",
-  `https://wa.me/${whatsapp.replace(/\+/g, "")}`
-);
+// WhatsApp
+document.getElementById("whatsappBtn").href = `https://wa.me/${whatsapp}`;
 
-// --------------------
-// VIBER (fixed format)
-// --------------------
-document.getElementById("viberBtn").setAttribute(
-  "href",
-  `viber://chat?number=${viber}`
-);
+// Viber
+document.getElementById("viberBtn").href = `viber://chat?number=${viber}`;
 
-// --------------------
-// SMS BUTTON (simple direct)
-// --------------------
-document.getElementById("smsBtn").addEventListener("click", (e) => {
+// SMS button -> show reasons instead of opening SMS
+const smsBtn = document.getElementById("smsBtn");
+const reasonsContainer = document.querySelector(".reasons");
+
+smsBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  window.location.href = `sms:${phone}`;
+
+  // показва причините
+  reasonsContainer.style.display = "grid";
+
+  // scroll към тях (по-удобно за телефон)
+  reasonsContainer.scrollIntoView({ behavior: "smooth" });
 });
 
-// --------------------
-// REASONS -> AUTO SMS TEXT
-// --------------------
+// Reasons -> open SMS with selected message only
 const reasons = document.querySelectorAll(".reason");
 
-reasons.forEach((btn) => {
+reasons.forEach(btn => {
   btn.addEventListener("click", () => {
     const message = btn.getAttribute("data-message");
 
-    const fullMessage =
-      message +
-      "\n\nБлагодаря, че отделихте време да уведомите собственика.";
-
-    const smsLink = `sms:${phone}?body=${encodeURIComponent(fullMessage)}`;
+    const smsLink = `sms:${phone}?body=${encodeURIComponent(message)}`;
 
     window.location.href = smsLink;
   });
