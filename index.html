@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ParkNotify</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="card">
+
+  <div class="logo">🚗</div>
+
+  <h1>ParkNotify</h1>
+  <p class="subtitle">Бърза връзка със собственика на автомобила</p>
+
+  <div class="buttons">
+
+    <a id="callBtn" class="btn green">📞 Обади се</a>
+    <a id="viberBtn" class="btn purple">💜 Viber</a>
+    <a id="whatsappBtn" class="btn green2">💬 WhatsApp</a>
+    <button id="smsBtn" class="btn blue">✉️ SMS</button>
+
+  </div>
+
+  <div class="plate">🚙 <span id="plate">----</span></div>
+
+</div>
+
+<!-- overlay -->
+<div id="overlay"></div>
+
+<!-- bottom sheet -->
+<div id="sheet">
+
+  <div class="handle"></div>
+  <h2>Избери причина</h2>
+
+  <button class="reason" data-msg="Автомобилът Ви пречи при паркиране.">🚫 Пречи</button>
+  <button class="reason" data-msg="Фаровете Ви са включени.">💡 Фарове</button>
+  <button class="reason" data-msg="Имате отворен прозорец.">🪟 Прозорец</button>
+  <button class="reason" data-msg="Алармата е включена.">🔔 Аларма</button>
+  <button class="reason" data-msg="Автомобилът изглежда ударен.">🚗 Ударен</button>
+
+</div>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
