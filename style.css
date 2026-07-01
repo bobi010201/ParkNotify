@@ -1,27 +1,42 @@
-/* Base */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background: #0f172a;
   color: white;
+
+  -webkit-font-smoothing: antialiased;
 }
 
-/* background */
+/* animated background */
 .background {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at top, #1e293b, #0f172a);
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #0b1220, #111827);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
   z-index: -1;
 }
 
-/* card */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* card glassmorphism */
 .card {
   max-width: 420px;
   margin: 40px auto;
-  padding: 20px;
-  background: rgba(255,255,255,0.05);
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
+  padding: 22px;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
 /* logo */
@@ -30,6 +45,7 @@ body {
   text-align: center;
 }
 
+/* text */
 h1 {
   text-align: center;
 }
@@ -49,46 +65,66 @@ h1 {
 
 .btn {
   display: block;
-  padding: 12px;
-  border-radius: 12px;
+  padding: 14px;
+  border-radius: 14px;
   text-align: center;
-  text-decoration: none;
   font-weight: 600;
+  text-decoration: none;
+
+  transition: 0.2s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
 
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* colors */
 .call { background: #22c55e; color: white; }
 .viber { background: #8b5cf6; color: white; }
 .whatsapp { background: #25D366; color: white; }
-.sms { background: #3b82f6; color: white; }
+.sms { 
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+}
 
+/* divider */
 .divider {
   margin: 20px 0;
   height: 1px;
   background: rgba(255,255,255,0.1);
 }
 
-/* REASONS - hidden by default */
+/* reasons */
 .reasons {
   display: none;
   grid-template-columns: 1fr;
   gap: 10px;
   margin-top: 10px;
+
   animation: fadeIn 0.25s ease;
 }
 
-/* reason buttons */
+/* reason cards */
 .reason {
-  padding: 12px;
-  border: none;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.08);
+  padding: 14px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+
   color: white;
-  cursor: pointer;
   text-align: left;
+
+  transition: 0.2s ease;
+}
+
+.reason:active {
+  transform: scale(0.98);
 }
 
 .reason:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.12);
 }
 
 /* plate */
