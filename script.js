@@ -1,53 +1,48 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const CONFIG_SAFE = window.CONFIG || {
-    phone: "",
-    whatsapp: "",
-    viber: "",
-    plate: "PB2621XE"
-  };
+  const CONFIG = window.CONFIG;
 
-  const phone = CONFIG_SAFE.phone;
+  const phone = CONFIG.phone;
+  const plate = CONFIG.plate;
 
-  const plateEl = document.getElementById("plate");
+  document.getElementById("plate").textContent = plate;
+
+  document.getElementById("callBtn").href = `tel:${phone}`;
+  document.getElementById("whatsappBtn").href = `https://wa.me/${CONFIG.whatsapp}`;
+  document.getElementById("viberBtn").href = `viber://chat?number=${CONFIG.viber}`;
+
   const smsBtn = document.getElementById("smsBtn");
-  const reasonsContainer = document.querySelector(".reasons");
+  const overlay = document.getElementById("overlay");
+  const sheet = document.getElementById("sheet");
+
   const reasons = document.querySelectorAll(".reason");
 
-  // safety checks (важно)
-  if (!plateEl || !smsBtn || !reasonsContainer) {
-    console.error("Missing elements - check HTML");
-    return;
+  function openSheet() {
+    overlay.classList.add("show");
+    sheet.classList.add("show");
   }
 
-  // plate
-  plateEl.textContent = CONFIG_SAFE.plate;
+  function closeSheet() {
+    overlay.classList.remove("show");
+    sheet.classList.remove("show");
+  }
 
-  // links
-  document.getElementById("callBtn").href = `tel:${phone}`;
-  document.getElementById("whatsappBtn").href = `https://wa.me/${CONFIG_SAFE.whatsapp}`;
-  document.getElementById("viberBtn").href = `viber://chat?number=${CONFIG_SAFE.viber}`;
-
-  // start hidden (safe)
-  reasonsContainer.style.display = "none";
-
-  // show reasons
   smsBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    reasonsContainer.style.display = "grid";
-    reasonsContainer.scrollIntoView({ behavior: "smooth" });
+    openSheet();
   });
 
-  // send SMS only message
+  overlay.addEventListener("click", closeSheet);
+
   reasons.forEach(btn => {
     btn.addEventListener("click", () => {
 
       if (navigator.vibrate) navigator.vibrate(50);
 
-      const message = btn.getAttribute("data-message") || "";
+      const msg = btn.getAttribute("data-message");
 
       window.location.href =
-        `sms:${phone}?body=${encodeURIComponent(message)}`;
+        `sms:${phone}?body=${encodeURIComponent(msg)}`;
     });
   });
 
