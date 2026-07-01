@@ -1,20 +1,34 @@
-(function () {
-  const phone = CONFIG.phone;
-  const whatsapp = CONFIG.whatsapp;
-  const viber = CONFIG.viber;
-  const plate = CONFIG.plate;
+document.addEventListener("DOMContentLoaded", () => {
 
-  document.getElementById("plate").textContent = plate;
+  const CONFIG_SAFE = window.CONFIG || {
+    phone: "",
+    whatsapp: "",
+    viber: "",
+    plate: "PB2621XE"
+  };
 
-  document.getElementById("callBtn").href = `tel:${phone}`;
-  document.getElementById("whatsappBtn").href = `https://wa.me/${whatsapp}`;
-  document.getElementById("viberBtn").href = `viber://chat?number=${viber}`;
+  const phone = CONFIG_SAFE.phone;
 
+  const plateEl = document.getElementById("plate");
   const smsBtn = document.getElementById("smsBtn");
   const reasonsContainer = document.querySelector(".reasons");
   const reasons = document.querySelectorAll(".reason");
 
-  // start hidden
+  // safety checks (важно)
+  if (!plateEl || !smsBtn || !reasonsContainer) {
+    console.error("Missing elements - check HTML");
+    return;
+  }
+
+  // plate
+  plateEl.textContent = CONFIG_SAFE.plate;
+
+  // links
+  document.getElementById("callBtn").href = `tel:${phone}`;
+  document.getElementById("whatsappBtn").href = `https://wa.me/${CONFIG_SAFE.whatsapp}`;
+  document.getElementById("viberBtn").href = `viber://chat?number=${CONFIG_SAFE.viber}`;
+
+  // start hidden (safe)
   reasonsContainer.style.display = "none";
 
   // show reasons
@@ -24,18 +38,17 @@
     reasonsContainer.scrollIntoView({ behavior: "smooth" });
   });
 
-  // open SMS with ONLY message
+  // send SMS only message
   reasons.forEach(btn => {
     btn.addEventListener("click", () => {
 
       if (navigator.vibrate) navigator.vibrate(50);
 
-      const message = btn.getAttribute("data-message");
+      const message = btn.getAttribute("data-message") || "";
 
-      const smsLink = `sms:${phone}?body=${encodeURIComponent(message)}`;
-
-      window.location.href = smsLink;
+      window.location.href =
+        `sms:${phone}?body=${encodeURIComponent(message)}`;
     });
   });
 
-})();
+});
